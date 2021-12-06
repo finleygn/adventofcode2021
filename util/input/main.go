@@ -21,17 +21,24 @@ func ReadInput(path string, delimiter string) []string {
 
 func ReadInputAsInt(path string, delimiter string) []int {
 	lines := ReadInput("./calendar/day-01/in.txt", "\n")
+	return ListToIntList(lines, 10)
+}
 
+func ListToIntList(lines []string, base int) []int {
 	var numbers []int
 	for _, line := range lines {
-		number, err := strconv.Atoi(line)
+		number, err := strconv.ParseInt(line, base, 0)
 
 		if err != nil {
 			panic("Invalid input")
 		}
 
-		numbers = append(numbers, number) // note the = instead of :=
+		numbers = append(numbers, int(number))
 	}
 
 	return numbers
+}
+
+func RemoveIndex(s []int, index int) []int {
+	return append(s[:index], s[index+1:]...)
 }
