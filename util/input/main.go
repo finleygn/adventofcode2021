@@ -19,6 +19,17 @@ func ReadInput(path string, delimiter string) []string {
 	return slicedContent
 }
 
+func ReadInputPlain(path string) string {
+	file, err := ioutil.ReadFile(path)
+
+	if err != nil {
+		panic(err)
+	}
+
+	fileContent := string(file)
+	return fileContent
+}
+
 func ReadInputAsInt(path string, delimiter string) []int {
 	lines := ReadInput("./calendar/day-01/in.txt", "\n")
 	return ListToIntList(lines, 10)

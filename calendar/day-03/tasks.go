@@ -64,6 +64,7 @@ func get_rating(binary_length int, data []int, use_least_frequent int, keep int)
 func solve2(binary_length int, data []int) int {
 	oxygen_rating := get_rating(binary_length, data, 0, 1)
 	co2_rating := get_rating(binary_length, data, 1, 0)
+
 	return oxygen_rating * co2_rating
 }
 
