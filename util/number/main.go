@@ -13,3 +13,7 @@ func Min(x, y int) int {
 	}
 	return x
 }
+
+func Mod(a, b int) int {
+	return (a%b + b) % b
+}

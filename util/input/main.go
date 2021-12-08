@@ -31,12 +31,13 @@ func ReadInputPlain(path string) string {
 }
 
 func ReadInputAsInt(path string, delimiter string) []int {
-	lines := ReadInput("./calendar/day-01/in.txt", "\n")
+	lines := ReadInput(path, delimiter)
 	return ListToIntList(lines, 10)
 }
 
 func ListToIntList(lines []string, base int) []int {
 	var numbers []int
+
 	for _, line := range lines {
 		number, err := strconv.ParseInt(line, base, 0)
 
@@ -48,8 +49,4 @@ func ListToIntList(lines []string, base int) []int {
 	}
 
 	return numbers
-}
-
-func RemoveIndex(s []int, index int) []int {
-	return append(s[:index], s[index+1:]...)
 }
